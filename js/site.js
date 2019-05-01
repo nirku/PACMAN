@@ -61,36 +61,39 @@ $("#formsubmit").on('submit',function(e){
     console.log(logins);
   }
 })
+  //login validation
+  $("#login").on('submit',function(e){
+    var check = true;
+    var usernameValue = $("input[name='loginusername']" ).val();
+    var passwordValue = $("input[name='pass']" ).val();
+    var target = logins.find(temp=>temp.key===usernameValue) 
+
+    if(!target){
+      check = false;
+      alert("Username is incorrect")
+    }
+    else{
+    if(target.value != passwordValue){
+      check = false;
+    alert("Password is incorrect")
+    }
+  }
+  if(check)
+    alert("enjoy your game!")
+  e.preventDefault();
+  }
+  );
+
+  $("#about").on("click",function(){
+    $("#aboutmodal").modal('show');
+  })
+
 });
 
-//validation function for email adress format
+  //validation function for email adress format
 function validateEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 }
 
-  //login validation
-  $("#login").on('submit',function(e){
-    var check = true;
-    var usernameValue = $("input[name='username']" ).val();
-    var passwordValue = $("input[name='pass']" ).val();
-
-    if(!logins.includes(usernameValue)){
-      check =false;
-      alert("Username is incorrect")
-    }
-    else{ 
-    if(logins[usernameValue] != passwordValue){
-    check =false;
-    alert("Password is incorrect")
-    }
-  }
-    if(!check){
-      e.preventDefault();
-    }
-    else
-    alert("enjoy your game!")
-  
-  }
-  );
  
