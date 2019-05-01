@@ -17,10 +17,10 @@
     </div>
 
     <div class="topnav">
-        <a href="#">Welcome</a>
-        <a href="#">Sign-Up</a>
-        <a href="#">Sign-In</a>
-        <a href="#">About</a>
+        <a class="switchdiv" href="#">Welcome</a>
+        <a class="switchdiv" href="#">Sign-Up</a>
+        <a class="switchdiv" href="#">Sign-In</a>
+        <a class="switchdiv" href="#">About</a>
     </div>
 
     <div class="row">
@@ -32,8 +32,8 @@
             </div>
         </div>
 
-        <div class="Sign-In card" >
-            <form action="/action_page.php" style="border:1px solid #ccc">
+        <div class="Sign-Up card" hidden >
+            <form id="formsubmit" style="border:1px solid #ccc">
                 <div class="container">
                   <h1>Sign Up</h1>
                   <p>Please fill in this form to create an account.</p>
@@ -45,9 +45,6 @@
                   <label for="psw"><b>Password</b></label>
                   <input type="password" placeholder="Enter Password" name="psw" required>
 
-                  <label for="psw-repeat"><b>Repeat Password</b></label>
-                  <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-                  
                   <label for="firstname"><b>First name</b></label>
                   <input type="text" placeholder="Enter first name" name="firstname" required>
 
@@ -68,6 +65,51 @@
                 </div>
               </form>
         </div>
+
+        <div class="limiter card" hidden>
+            <div class="container-login100">
+                <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+                    <form id="login" class="login100-form validate-form flex-sb flex-w">
+                        <span class="login100-form-title p-b-32">
+                            Account Login
+                        </span>
+    
+                        <span class="txt1 p-b-11">
+                            Username
+                        </span>
+                        <div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
+                            <input class="input100" type="text" name="username" >
+                            <span class="focus-input100"></span>
+                        </div>
+                        
+                        <span class="txt1 p-b-11">
+                            Password
+                        </span>
+                        <div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+                            <span class="btn-show-pass">
+                                <i class="fa fa-eye"></i>
+                            </span>
+                            <input class="input100" type="password" name="pass" >
+                            <span class="focus-input100"></span>
+                        </div>
+                        
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn">
+                                Login
+                            </button>
+                        </div>
+    
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+
+
+        </div>
+
 
 
 
