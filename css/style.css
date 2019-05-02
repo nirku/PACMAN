@@ -80,7 +80,7 @@
 
   /********************************************sign in style************************************************************/
   /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=number] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -88,9 +88,16 @@ input[type=text], input[type=password] {
     border: none;
   }
   
-  input[type=text]:focus, input[type=password]:focus {
+  input[type=text]:focus, input[type=password]:focus, input[type=number]:focus, input[type=color]:focus {
     outline: none;
   }
+
+input[type=color]{
+  width: 100%;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+}
   
   hr {
     border: 1px solid #f1f1f1;

@@ -8,6 +8,8 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/site.js"></script>
+    <script src="js/models.js"></script>
+
 
 
 <body>
@@ -24,46 +26,46 @@
     </div>
 
     <div class="row">
-        <div class="welcome card" >
+        <div class="welcome card">
             <h2>logo </h2>
             <div class="btn_welcome">
-                <button type="button" > sign in </button>
-                <button type="button" > sign up </button>
+                <button type="button"> sign in </button>
+                <button type="button"> sign up </button>
             </div>
         </div>
 
-        <div class="Sign-Up card" hidden >
+        <div class="Sign-Up card" hidden>
             <form id="formsubmit" style="border:1px solid #ccc">
                 <div class="container">
-                  <h1>Sign Up</h1>
-                  <p>Please fill in this form to create an account.</p>
-                  <hr>
-              
-                  <label for="username"><b>User name</b></label>
-                  <input type="text" placeholder="Enter User name" name="username" required>
+                    <h1>Sign Up</h1>
+                    <p>Please fill in this form to create an account.</p>
+                    <hr>
 
-                  <label for="psw"><b>Password</b></label>
-                  <input type="password" placeholder="Enter Password" name="psw" required>
+                    <label for="username"><b>User name</b></label>
+                    <input type="text" placeholder="Enter User name" name="username" required>
 
-                  <label for="firstname"><b>First name</b></label>
-                  <input type="text" placeholder="Enter first name" name="firstname" required>
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
 
-                  <label for="lastname"><b>Last name</b></label>
-                  <input type="text" placeholder="Enter last name" name="lastname" required>
+                    <label for="firstname"><b>First name</b></label>
+                    <input type="text" placeholder="Enter first name" name="firstname" required>
 
-                  <label for="email"><b>Email</b></label>
-                  <input type="text" placeholder="Enter Email" name="email" required>
+                    <label for="lastname"><b>Last name</b></label>
+                    <input type="text" placeholder="Enter last name" name="lastname" required>
 
-                  <label for="date"><b>Birth date </b></label>
-                  <input type="text" placeholder="Enter date of birth" id="datepicker" name="date" required>
-              
-              
-                  <div class="clearfix">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <button type="submit" class="signupbtn">Sign Up</button>
-                  </div>
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" required>
+
+                    <label for="date"><b>Birth date </b></label>
+                    <input type="text" placeholder="Enter date of birth" id="datepicker" name="date" required>
+
+
+                    <div class="clearfix">
+                        <button type="button" class="cancelbtn">Cancel</button>
+                        <button type="submit" class="signupbtn">Sign Up</button>
+                    </div>
                 </div>
-              </form>
+            </form>
         </div>
 
         <div class="limiter card" hidden>
@@ -73,87 +75,107 @@
                         <span class="login100-form-title p-b-32">
                             Account Login
                         </span>
-    
+
                         <span class="txt1 p-b-11">
                             Username
                         </span>
-                        <div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-                            <input class="input100" type="text" name="loginusername" >
+                        <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+                            <input class="input100" type="text" name="loginusername">
                             <span class="focus-input100"></span>
                         </div>
-                        
+
                         <span class="txt1 p-b-11">
                             Password
                         </span>
-                        <div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+                        <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
                             <span class="btn-show-pass">
                                 <i class="fa fa-eye"></i>
                             </span>
-                            <input class="input100" type="password" name="pass" >
+                            <input class="input100" type="password" name="pass">
                             <span class="focus-input100"></span>
                         </div>
-                        
+
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn">
                                 Login
                             </button>
                         </div>
-    
+
                     </form>
                 </div>
             </div>
         </div>
+        <!--Configuration div-->
+        <div class="settings card" hidden>
+            <form id="formsubmit" style="border:1px solid #ccc">
+                <div class="container">
+                    <h1>Settings</h1>
+                    <p>Please fill in to start the game.</p>
+                    <hr>
 
+                    <label for="upkey"><b>Up</b></label>
+                    <input type="text" placeholder="Up Key" name="up" required>
 
-        <div>
+                    <label for="downkey"><b>Down</b></label>
+                    <input type="text" placeholder="Down Key" name="down" required>
 
+                    <label for="leftkey"><b>Left</b></label>
+                    <input type="text" placeholder="Left Key" name="left" required>
 
-        </div>
+                    <label for="rightkey"><b>Right</b></label>
+                    <input type="text" placeholder="Right Key" name="right" required>
 
-
-
-
-        <div class="card" hidden>
-            <h2>TITLE HEADING</h2>
-            <h5>Title description, Sep 2, 2017</h5>
-            <div class="fakeimg" style="height:200px;">Image</div>
-            <p>Some text..</p>
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco.</p>
+                    <label for="balls"><b>Balls Num.</b></label>
+                    <input type="number" placeholder="Number of balls" name="ballsnum" required>
+                    
+                    <label for="color"><b>5 Points Color</b></label>
+                    <input type="color" name="ball5color"  required>
+                    
+                    <label for="color"><b>15 Points Color</b></label>
+                    <input type="color" name="ball15color" required>
+                    
+                    <label for="color"><b>25 Points Color</b></label>
+                    <input type="color" name="ball25color" required>
+                    
+                    <label for="gametime"><b>Game Time</b></label>
+                    <input type="number" placeholder="Enter game time" name="time" required>
+                    
+                    <label for="monster"><b>Monster Num.</b></label>
+                    <input type="number" placeholder="Number of monsters" name="monstersnum" required>
+                    <div class="clearfix">
+                        <button type="button" class="cancelbtn">Random</button>
+                        <button type="submit" class="signupbtn">Start Game</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+
     <div class="footer">
         <h2>Footer</h2>
     </div>
 
 
-<!---about-->
-    <div id = "aboutmodal" class="modal" tabindex="-1" role="dialog">
+    <!---about-->
+    <div id="aboutmodal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">About</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">About</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>hi , this is the best pacman in beer sheva .</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
-            <div class="modal-body">
-              <p>hi , this is the best pacman in beer sheva .</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
         </div>
-      </div>
-
-
-
+    </div>
 </body>
-
-
 </head>
-
 
 </html>
