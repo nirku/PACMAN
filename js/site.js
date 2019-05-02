@@ -91,6 +91,8 @@ $(document).ready(function () {
     $("#aboutmodal").modal('show');
   })
 
+  
+
 });
 
 //validation function for email adress format

@@ -8,7 +8,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/site.js"></script>
-    <script src="js/models.js"></script>
+    <script src="js/settings.js"></script>
 
 
 
@@ -39,7 +39,6 @@
                 <div class="container">
                     <h1>Sign Up</h1>
                     <p>Please fill in this form to create an account.</p>
-                    <hr>
 
                     <label for="username"><b>User name</b></label>
                     <input type="text" placeholder="Enter User name" name="username" required>
@@ -107,43 +106,42 @@
         </div>
         <!--Configuration div-->
         <div class="settings card" hidden>
-            <form id="formsubmit" style="border:1px solid #ccc">
+            <form id="settingform" style="border:1px solid #ccc">
                 <div class="container">
                     <h1>Settings</h1>
                     <p>Please fill in to start the game.</p>
-                    <hr>
 
                     <label for="upkey"><b>Up</b></label>
-                    <input type="text" placeholder="Up Key" name="up" required>
+                    <input maxlength="1" class="keys" value="ArrowUp" type="text" placeholder="Up Key" name="up" required>
 
                     <label for="downkey"><b>Down</b></label>
-                    <input type="text" placeholder="Down Key" name="down" required>
+                    <input maxlength="1" class="keys" type="text" value="ArrowDown" placeholder="Down Key" name="down" required>
 
                     <label for="leftkey"><b>Left</b></label>
-                    <input type="text" placeholder="Left Key" name="left" required>
+                    <input maxlength="1" class="keys" type="text" value="ArrowLeft" placeholder="Left Key" name="left" required>
 
                     <label for="rightkey"><b>Right</b></label>
-                    <input type="text" placeholder="Right Key" name="right" required>
+                    <input maxlength="1" class="keys" type="text" value="ArrowRight" placeholder="Right Key" name="right" required>
 
                     <label for="balls"><b>Balls Num.</b></label>
-                    <input type="number" placeholder="Number of balls" name="ballsnum" required>
+                    <input type="number" placeholder="Number of balls" value="50" name="ballsnum" min="50" max="90" required>
                     
                     <label for="color"><b>5 Points Color</b></label>
-                    <input type="color" name="ball5color"  required>
+                    <input type="color" name="ball5color" value="#FFFF00" required>
                     
                     <label for="color"><b>15 Points Color</b></label>
-                    <input type="color" name="ball15color" required>
+                    <input type="color" name="ball15color" value="#FF0000" required>
                     
                     <label for="color"><b>25 Points Color</b></label>
-                    <input type="color" name="ball25color" required>
+                    <input type="color" name="ball25color" value="#808000" required>
                     
                     <label for="gametime"><b>Game Time</b></label>
-                    <input type="number" placeholder="Enter game time" name="time" required>
+                    <input type="number" placeholder="Enter game time" value="60" name="time" min="60" required>
                     
                     <label for="monster"><b>Monster Num.</b></label>
-                    <input type="number" placeholder="Number of monsters" name="monstersnum" required>
+                    <input type="number" placeholder="Number of monsters" value="1" name="monstersnum" min="1" max="3" required>
                     <div class="clearfix">
-                        <button type="button" class="cancelbtn">Random</button>
+                        <button type="button" id="btn_rand" class="cancelbtn">Random</button>
                         <button type="submit" class="signupbtn">Start Game</button>
                     </div>
                 </div>
