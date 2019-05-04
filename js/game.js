@@ -13,7 +13,7 @@
     function Start(values) {
         $(".settings").attr('hidden', true)
         $(".game").removeAttr('hidden')
-        settings = values;
+        settings = values; 
         context = canvas.getContext('2d');
         board = new Array();
         score = 0;
@@ -53,9 +53,11 @@
         keysDown = {};
         addEventListener("keydown", function (e) {
             keysDown[e.code] = true;
+            e.preventDefault();
         }, false);
         addEventListener("keyup", function (e) {
             keysDown[e.code] = false;
+            e.preventDefault();
         }, false);
         interval = setInterval(UpdatePosition, 250);
     }
@@ -122,7 +124,7 @@
                     context.fill();
                     context.beginPath();
                     if(start_angle === 1.75*Math.PI || start_angle===0.65*Math.PI)
-                        context.arc(center.x - 5, center.y + 15, 5, 0, 2 * Math.PI); // circle
+                        context.arc(center.x - 15, center.y - 7, 5, 0, 2 * Math.PI); // circle
                     if(start_angle === 1.15*Math.PI || start_angle===0.15*Math.PI)
                         context.arc(center.x + 5, center.y - 15, 5, 0, 2 * Math.PI); // circle
                     context.fillStyle = "black"; //color
