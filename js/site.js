@@ -16,17 +16,17 @@ $(document).ready(function () {
   });
 
   $(".switchdiv").on('click', function (e) {
-    console.log(e)
+    $(".settings").attr('hidden',true)
     $(".welcome").attr('hidden', true)
     $(".Sign-Up").attr('hidden', true)
     $(".limiter").attr('hidden', true)
+    $(".game").attr('hidden', true)
     if (e.currentTarget.text == "Welcome")
       $(".welcome").removeAttr('hidden')
     if (e.currentTarget.text == "Sign-Up")
       $(".Sign-Up").removeAttr('hidden')
     if (e.currentTarget.text == "Sign-In")
       $(".limiter").removeAttr('hidden')
-
   })
   //validation function for sign up form
   $("#formsubmit").on('submit', function (e) {
@@ -87,12 +87,17 @@ $(document).ready(function () {
   }
   );
 
+  $("#welcome-reg").on("click",function(){
+    $(".switchdiv:contains(Sign-Up)").click()
+  })
+
+  $("#welcome-log").on("click",function(){
+    $(".switchdiv:contains(Sign-In)").click()
+  })
+
   $("#about").on("click", function () {
     $("#aboutmodal").modal('show');
   })
-
-  
-
 });
 
 //validation function for email adress format

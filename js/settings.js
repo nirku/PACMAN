@@ -5,7 +5,6 @@ $(document).ready(function () {
     // listen to key down on input and record the key to the input
 $(".keys").on("keydown",function(e){
    this.value = e.originalEvent.key;
-   console.log(e)
 });
 
 // Random generator for settings form in input fields
@@ -32,7 +31,6 @@ $("#btn_rand").on('click',function(){
             this.value = getRandomInt(60,360)
         if(input[0].name=="monstersnum")
             this.value = getRandomInt(1,3)
-        console.log(input);
 })
 })
 
@@ -51,8 +49,7 @@ $("#settingform").on('submit', function (e) {
     $inputs.each(function() {
         values[this.name] = $(this).val();
     });
-    console.log(values);
-
+    Start(values);
 });
 });
 
