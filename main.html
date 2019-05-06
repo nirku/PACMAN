@@ -10,6 +10,7 @@
     <script src="js/jquery-3.4.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <script src="js/sweetalert.js"></script>
     <script src="js/game.js"></script>
     <script src="js/site.js"></script>
     <script src="js/settings.js"></script>
@@ -53,7 +54,7 @@
                 <img src="img/greenghost.png" alt="" />
                 <h3>Welcome</h3>
                 <p>You are 30 seconds away from playing the best game ever!!</p>
-                <input type="submit" name="" value="Login" /><br />
+                <input id="reg_log" type="submit" name="" value="Login" /><br />
             </div>
             <div class="col-md-9 register-right">
                 <h3 class="register-heading">Sign Up</h3>
@@ -223,6 +224,12 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="control-label col-sm-2" for="gametime">Game Time:</label>
+                            <div class="col-sm-10 input-wrapper">
+                                <input type="number" class="form-control" value="60" name="time" min="60" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label col-sm-2" for="monster">Monster Num.:</label>
                             <div class="col-sm-10 input-wrapper">
                                 <input class="form-control" type="number" placeholder="Number of monsters" value="1"
@@ -241,19 +248,27 @@
         </div>
     </div>
     <!--game-->
-    <div class="game" hidden>
-        SCORE:
-        <input id="lblScore" type="text" />
-        <br />
-        TIME:
-        <input id="lblTime" type="text" />
-        <br />
-        <canvas id="canvas" height="600" width="600"></canvas>
-    </div>
-    </div>
 
+    <div class="game" hidden>
+        <div class="item gheader">
+            <h2>Hi <span id="lblPlayer"></span></h2>
+        </div>
+        <div class="item score">
+            <h2>Time: <span id="lblTime"></span></h2>
+        </div>
+        <div class="item score">
+            <h2>Score: <span id="lblScore"></span></h2>
+        </div>
+        <div class="item score">
+                <h2>Lives: <span id="lbllife">3</span></h2>
+        </div>
+    <canvas id="canvas" height="1200" width="1200"></canvas>
+    </div>
+</div>
     <div class="footer">
-        <h2>Footer</h2>
+        <p>Created by: Nir Kutsky & Lidor Avitan </p>
+        <p> Contact information: <a href="mailto:nirku@post.bgu.ac.il">nirku@post.bgu.ac.il</a></p>
+        <p>&copy; Copyright 2019 Pac-Man</p>
     </div>
 
 

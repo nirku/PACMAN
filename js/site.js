@@ -1,19 +1,11 @@
 
 //dictionary for regristed users 
 var logins = [{ key: 'a', value: 'a' }];
+var loggedOn;
 
 $(document).ready(function () {
 
-  $('#datepicker').datepicker({
-    startView: 0,
-    forceParse: false,
-    autoclose: true,
-    startDate: null,
-    format: "dd/mm/yyyy",
-    daysOfWeekDisabled: [0, 6]
-  }).on('changeDate', function (selected) {
-    var minDate = new Date(selected.date.valueOf());
-  });
+  $('#datepicker').datepicker();
 
   $(".switchdiv").on('click', function (e) {
     $(".settings").attr('hidden',true)
@@ -23,10 +15,14 @@ $(document).ready(function () {
     $(".game").attr('hidden', true)
     if (e.currentTarget.text == "Welcome")
       $(".welcome").removeAttr('hidden')
-    if (e.currentTarget.text == "Sign-Up")
+    if (e.currentTarget.text == "Sign-Up"){
+      $("#formsubmit").trigger('reset');
       $(".Sign-Up").removeAttr('hidden')
-    if (e.currentTarget.text == "Sign-In")
+    }
+    if (e.currentTarget.text == "Sign-In"){
+      $("#login").trigger('reset');
       $(".limiter").removeAttr('hidden')
+    }
   })
   //validation function for sign up form
   $("#formsubmit").on('submit', function (e) {
@@ -39,15 +35,15 @@ $(document).ready(function () {
     var passRegex = new RegExp(/^(?=.*[a-zA-Z])(?=.*[0-9])/);
     if (passwordValue.length < 8 || !passRegex.test(passwordValue)) {
       checkValid = false;
-      alert("Your password is incorrect - Make sure your password length is minimum 8 and contains letters and numbers")
+      showAlert("Your password is incorrect - Make sure your password length is minimum 8 and contains letters and numbers",'Oops..','error')
     }
     if (/\d/.test(fnameValue) || /\d/.test(lnameValue)) {
       checkValid = false;
-      alert("First and last name cannot contain numbers");
+      showAlert("First and last name cannot contain numbers","Oops..","error");
     }
     if (!validateEmail(emailValue)) {
       checkValid = false;
-      alert("Email address is not valid - Must be in the format xxx@xxx.xxx")
+      showAlert("Email address is not valid - Must be in the format xxx@xxx.xxx","Oops..","error");
     }
     if (!checkValid) {
       e.preventDefault();
@@ -57,8 +53,7 @@ $(document).ready(function () {
         key: usernameValue,
         value: passwordValue
       });
-      alert("Successfuly Signed Up!")
-      console.log(logins);
+      showAlert("Successfuly Signed Up!","Cool","success");
     }
   })
   //login validation
@@ -70,16 +65,17 @@ $(document).ready(function () {
 
     if (!target) {
       check = false;
-      alert("Username is incorrect")
+      showAlert("Username is incorrect","Oops..","error");
     }
     else {
       if (target.value != passwordValue) {
         check = false;
-        alert("Password is incorrect")
+        showAlert("Password is incorrect","Oops..","error");
       }
     }
     if (check) {
-      alert("enjoy your game!")
+      showAlert("enjoy your game!","Cool",'success');
+      loggedOn = usernameValue;
       $(".limiter").attr('hidden', true)
       $(".settings").removeAttr('hidden')
     }
@@ -98,6 +94,10 @@ $(document).ready(function () {
   $("#about").on("click", function () {
     $("#aboutmodal").modal('show');
   })
+  
+  $("#reg_log").on("click",function(){
+    $(".switchdiv:contains(Sign-In)").click()
+  })
 });
 
 //validation function for email adress format
@@ -106,4 +106,15 @@ function validateEmail(email) {
   return re.test(email);
 }
 
+function showAlert(msg,header,alertType){
+  Swal.fire({
+    type: alertType,
+    title: header,
+    text: msg,
+  })
+}
+
+function getLoggedUser(){
+  return loggedOn;
+}
 

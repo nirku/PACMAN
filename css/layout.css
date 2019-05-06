@@ -63,6 +63,10 @@ Layout
   color: #fff;
   background: #7eabac;
   padding: 1em 1.25em;
+  display: flex;
+}
+.footer p{
+  margin-right:15px;
 }
 /* -----------------------
 Navbar

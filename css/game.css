@@ -1,4 +1,40 @@
 #canvas{
-    width:400px; 
+    width:600px; 
     height:400px;
+    margin-top:15px;
+    margin-bottom: 15px;
+    border: 15px solid #333;
+
+}
+
+.item {
+    padding-left: 15px;
+    background: #333;
+}
+
+.gheader {
+  grid-area: header;
+  background: #ff6060;
+}
+
+.gheader h2 {
+  margin: 0;
+}
+
+.stats {
+  grid-area: stats;
+  background: white;
+}
+
+
+.score, .gheader {
+    display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+}
+
+.check {
+  position: absolute;
+  opacity: 0;
 }

@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     // listen to key down on input and record the key to the input
 $(".keys").on("keydown",function(e){
-   this.value = e.originalEvent.key;
+   this.value = e.code
 });
 
 // Random generator for settings form in input fields
@@ -36,12 +36,13 @@ $("#btn_rand").on('click',function(){
 
 $("#settingform").on('submit', function (e) {
     var keysVal = [];
+    e.preventDefault();
     keys = $(".keys")
     keys.each(i => {
         keysVal.push(keys[i].value);
     });
     if(!checkIfArrayIsUnique(keysVal)){
-        alert("Cannot define 2 or more keys with the same value");
+        showAlert("Cannot define 2 or more keys with the same value","Oops..","error");
     }
     var $inputs = $('#settingform :input');
 
@@ -49,6 +50,7 @@ $("#settingform").on('submit', function (e) {
     $inputs.each(function() {
         values[this.name] = $(this).val();
     });
+    values["user"] = getLoggedUser();
     Start(values);
 });
 });
@@ -95,3 +97,11 @@ function hexGenerator() {
 
     return hexValue.join('');
 }
+
+function showAlert(msg,header,alertType){
+    Swal.fire({
+      type: alertType,
+      title: header,
+      text: msg,
+    })
+  }
