@@ -314,7 +314,7 @@ function UpdatePosition() {
 //when pacman meets a monster
 function monsterAttack(x) {
     if (x === 1) {
-        if (shape.j - 1 < 19) {
+        if (shape.j - 1 > 0) {
             if (board[shape.i][shape.j - 1] == 7 || board[shape.i][shape.j - 1] == 8
                 || board[shape.i][shape.j - 1] == 9) {
                 life--;
@@ -346,7 +346,7 @@ function monsterAttack(x) {
         }
     }
     if (x === 3) {
-        if (shape.i - 1 < 19) {
+        if (shape.i - 1 > 0) {
             if (board[shape.i - 1][shape.j] == 7 || board[shape.i - 1][shape.j] == 8
                 || board[shape.i - 1][shape.j] == 9) {
                 life--;
@@ -590,7 +590,7 @@ function displayEndMsg(msg, type) {
         imgurl = "./img/again1.gif";
     if (type == "lose")
         imgurl = "./img/losing1.gif";
-    setTimeout(Swal.fire({
+    Swal.fire({
         title: msg,
         width: 400,
         padding: '3em',
@@ -613,7 +613,7 @@ function displayEndMsg(msg, type) {
         else {
             $(".switchdiv:contains(Welcome)").click()
         }
-    }), 1000);
+    });
 }
 
 function wait(ms){
