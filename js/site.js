@@ -53,7 +53,9 @@ $(document).ready(function () {
         key: usernameValue,
         value: passwordValue
       });
+      e.preventDefault();
       showAlert("Successfuly Signed Up!","Cool","success");
+      $(".switchdiv:contains(Welcome)").click()
     }
   })
   //login validation
