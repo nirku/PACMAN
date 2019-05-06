@@ -52,13 +52,13 @@ function Start(values) {
                 shape.m1y = 0;
                 continue;
             }
-            if (i == 19 && j == 19) {
+            if (i == 19 && j == 19 && settings["monstersnum"] > 1) {
                 board[i][j] = 8;
                 shape.m2x = 19;
                 shape.m2y = 19;
                 continue;
             }
-            if (i == 0 && j == 19) {
+            if (i == 0 && j == 19 && settings["monstersnum"] > 2) {
                 board[i][j] = 9;
                 shape.m3x = 0;
                 shape.m3y = 19;
@@ -231,10 +231,14 @@ function UpdatePosition() {
     if (monsterInterval == 4) {
         monsterNextMove("m1x", "m1y", 0);
         board[shape.m1x][shape.m1y] = 7;
-        monsterNextMove("m2x", "m2y", 1);
-        board[shape.m2x][shape.m2y] = 8;
-        monsterNextMove("m3x", "m3y", 2);
-        board[shape.m3x][shape.m3y] = 9;
+        if(settings["monstersnum"]> 1){        
+            monsterNextMove("m2x", "m2y", 1);
+            board[shape.m2x][shape.m2y] = 8;
+        }
+        if(settings["monstersnum"]>2){
+            monsterNextMove("m3x", "m3y", 2);
+            board[shape.m3x][shape.m3y] = 9;
+        }
         monsterInterval = 0;
     }
     var x = GetKeyPressed();
@@ -529,8 +533,10 @@ function playPause(elem, action) {
     // NOTE: audio is from the gloabl scope
     if (action == 'Play')
         elem.play();
-    if(action == 'Stop')
-        elem.stop();
+    if(action == 'Stop'){
+        elem.pause();
+        elem.currentTime = 0;
+    }
     if(action == 'Pause')
         elem.pause();
 }
