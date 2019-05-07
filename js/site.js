@@ -12,7 +12,10 @@ $(document).ready(function () {
     $(".welcome").attr('hidden', true)
     $(".Sign-Up").attr('hidden', true)
     $(".limiter").attr('hidden', true)
-    $(".game").attr('hidden', true)
+    if($('.game').is(':visible')){
+      stopGame();
+      $(".game").attr('hidden', true)
+    }
     if (e.currentTarget.text == "Welcome")
       $(".welcome").removeAttr('hidden')
     if (e.currentTarget.text == "Sign-Up"){

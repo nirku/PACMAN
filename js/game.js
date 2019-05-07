@@ -95,13 +95,17 @@ function Start(values) {
     }
     deployDifferentBalls(ball15points, ball25points);
     keysDown = {};
-    addEventListener("keydown", function (e) {
+    document.addEventListener("keydown", function (e) {
+        if($('.game').is(':visible')){
+            e.preventDefault();
+        }
         keysDown[e.code] = true;
-        e.preventDefault();
     }, false);
-    addEventListener("keyup", function (e) {
+    document.addEventListener("keyup", function (e) {
+        if($('.game').is(':visible')){
+            e.preventDefault();
+        }
         keysDown[e.code] = false;
-        e.preventDefault();
     }, false);
     interval = setInterval(UpdatePosition, 100);
 }
@@ -628,4 +632,9 @@ function wait(ms){
     while(end < start + ms) {
       end = new Date().getTime();
    }
+ }
+
+ function stopGame(){
+     window.clearInterval(interval);
+     playPause(theme,"Stop");
  }
